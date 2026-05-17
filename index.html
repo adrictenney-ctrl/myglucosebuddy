@@ -1,5 +1,45 @@
-<html>
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connecting to MyGlucoseBuddy</title>
+    <style>
+      body {
+        font-family: -apple-system, Roboto, Arial, sans-serif;
+        text-align: center;
+        padding: 48px 24px;
+        background: #938676;
+        color: #ffffff;
+      }
+      h1 { font-size: 22px; margin-bottom: 8px; }
+      p { font-size: 15px; }
+      a.button {
+        display: inline-block;
+        margin-top: 28px;
+        padding: 16px 32px;
+        background: #ffffff;
+        color: #000000;
+        text-decoration: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      p.note { margin-top: 28px; font-size: 13px; color: #e8e2d8; }
+    </style>
+  </head>
   <body>
-    <p>Redirecting...</p>
+    <h1>Almost there</h1>
+    <p>Tap below to finish connecting Dexcom.</p>
+    <a id="returnLink" class="button" href="#">Return to MyGlucoseBuddy</a>
+    <p class="note">If nothing happens, make sure the MyGlucoseBuddy app is installed.</p>
+    <script>
+      (function () {
+        var query = window.location.search || "";
+        var target = "myglucosebuddyv4://oauth2redirect" + query;
+        document.getElementById("returnLink").setAttribute("href", target);
+        window.location.replace(target);
+      })();
+    </script>
   </body>
-</html>
+  </html>
